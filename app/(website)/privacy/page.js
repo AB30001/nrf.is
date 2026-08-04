@@ -8,9 +8,11 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <Container>
-      <div className="prose mx-auto max-w-screen-md dark:prose-invert">
-        <h1>Privacy Policy</h1>
+    <Container alt className="py-16">
+      <div className="prose prose-invert prose-nrf mx-auto max-w-screen-md">
+        <h1 className="font-serif font-normal text-frost-light">
+          Privacy Policy
+        </h1>
         <p>Last updated: June 2026</p>
 
         <h2>Who we are</h2>

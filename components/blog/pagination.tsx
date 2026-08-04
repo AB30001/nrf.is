@@ -35,21 +35,19 @@ export default function Pagination({
   };
 
   return (
-    <div className="mt-10 flex items-center justify-center">
-      <nav
-        className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-        aria-label="Pagination">
+    <div className="mt-16 flex items-center justify-center">
+      <nav className="isolate inline-flex" aria-label="Pagination">
         <button
           disabled={isFirstPage}
           onClick={handlePrevPage}
-          className="relative inline-flex items-center gap-1 rounded-l-md border border-gray-300 bg-white px-3 py-2 pr-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+          className="btn-outline gap-2 px-6 py-3">
           <ChevronLeftIcon className="h-3 w-3" aria-hidden="true" />
           <span>Previous</span>
         </button>
         <button
           onClick={handleNextPage}
           disabled={isLastPage}
-          className="relative inline-flex items-center gap-1 rounded-r-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+          className="btn-outline -ml-px gap-2 px-6 py-3">
           <span>Next</span>
           <ChevronRightIcon className="h-3 w-3" aria-hidden="true" />
         </button>

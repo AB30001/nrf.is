@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
+import PageHeader from "@/components/ui/pageHeader";
 import { notFound } from "next/navigation";
 import {
   getAllCategories,
@@ -27,19 +28,21 @@ export default async function CategoryPage({ params }) {
   )?.title || params.slug.replace(/-/g, " ");
 
   return (
-    <Container>
-      <h1 className="mb-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl">
-        {categoryTitle}
-      </h1>
-      <p className="mb-10 text-center text-gray-500 dark:text-gray-400">
-        {posts.length} {posts.length === 1 ? "post" : "posts"}
-      </p>
+    <>
+      <PageHeader
+        className="-mt-20"
+        kicker="Category"
+        title={categoryTitle}
+        subtitle={`${posts.length} ${posts.length === 1 ? "post" : "posts"}`}
+      />
 
-      <div className="grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-        {posts.map(post => (
-          <PostList key={post._id} post={post} aspect="square" />
-        ))}
-      </div>
-    </Container>
+      <Container large alt className="pb-24 pt-4">
+        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
+          {posts.map(post => (
+            <PostList key={post._id} post={post} aspect="custom" />
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }

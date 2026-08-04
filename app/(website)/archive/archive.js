@@ -27,14 +27,14 @@ export default async function Post({ searchParams }) {
     <>
       {posts && posts?.length === 0 && (
         <div className="flex h-40 items-center justify-center">
-          <span className="text-lg text-gray-500">
+          <span className="text-lg text-mist-dim">
             End of the result!
           </span>
         </div>
       )}
-      <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+      <div className="mt-10 grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
         {posts.map(post => (
-          <PostList key={post._id} post={post} aspect="square" />
+          <PostList key={post._id} post={post} aspect="custom" />
         ))}
       </div>
 

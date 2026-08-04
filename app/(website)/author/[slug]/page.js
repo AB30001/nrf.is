@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
+import PageHeader from "@/components/ui/pageHeader";
 import { notFound } from "next/navigation";
 import {
   getAllAuthorsSlugs,
@@ -30,10 +31,14 @@ export default async function AuthorPage({ params }) {
   const imageProps = author?.image ? urlForImage(author.image) : null;
 
   return (
-    <Container>
-      <div className="flex flex-col items-center mb-10">
+    <>
+      <PageHeader
+        className="-mt-20"
+        kicker="Author"
+        title={author.name}
+        subtitle={`${posts.length} ${posts.length === 1 ? "post" : "posts"}`}>
         {imageProps && (
-          <div className="relative h-20 w-20 mb-4">
+          <div className="relative mx-auto mt-8 h-20 w-20">
             <Image
               src={imageProps.src}
               alt={author.name}
@@ -43,19 +48,15 @@ export default async function AuthorPage({ params }) {
             />
           </div>
         )}
-        <h1 className="text-3xl font-semibold tracking-tight dark:text-white">
-          {author.name}
-        </h1>
-        <p className="mt-1 text-gray-500 dark:text-gray-400">
-          {posts.length} {posts.length === 1 ? "post" : "posts"}
-        </p>
-      </div>
+      </PageHeader>
 
-      <div className="grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-        {posts.map(post => (
-          <PostList key={post._id} post={post} aspect="square" />
-        ))}
-      </div>
-    </Container>
+      <Container large alt className="pb-24 pt-4">
+        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
+          {posts.map(post => (
+            <PostList key={post._id} post={post} aspect="custom" />
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }

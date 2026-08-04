@@ -65,9 +65,11 @@ export default async function Layout({ children, params }) {
       <JsonLd data={buildWebsiteJsonLd()} />
       <Navbar {...settings} categories={categories} />
 
-      <div>{children}</div>
+      {/* Offsets the fixed navbar. Pages with a full-bleed hero opt out by
+          pulling themselves back up with a negative margin. */}
+      <main className="pt-20">{children}</main>
 
-      <Footer {...settings} />
+      <Footer {...settings} categories={categories} />
     </>
   );
 }

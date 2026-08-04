@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+    <div className="mt-10 grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
       {new Array(6).fill().map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <div key={index}>
@@ -12,14 +12,9 @@ export default function Loading() {
 }
 
 const SkeletonImg = () => {
-  const style = `
-     .dark svg#skeleton #colorbase {
-        stop-color: #2d2d2d;
-      }
-      .dark svg#skeleton #colorhighlight {
-        stop-color: #3d3d3d;
-      }
-  `;
+  // Palette is dark by default now; the theme class no longer needs to
+  // override it, so the base stop colours below carry the whole skeleton.
+  const style = "";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +76,7 @@ const SkeletonImg = () => {
         <linearGradient id="fill">
           <stop
             offset="0.599964"
-            stopColor="#f0f0f0"
+            stopColor="#16191a"
             stopOpacity="1"
             id="colorbase">
             <animate
@@ -94,7 +89,7 @@ const SkeletonImg = () => {
           </stop>
           <stop
             offset="1.59996"
-            stopColor="#f7f7f7"
+            stopColor="#232829"
             stopOpacity="1"
             id="colorhighlight">
             <animate
@@ -107,7 +102,7 @@ const SkeletonImg = () => {
           </stop>
           <stop
             offset="2.59996"
-            stopColor="#f0f0f0"
+            stopColor="#16191a"
             stopOpacity="1"
             id="colorbase">
             <animate

@@ -11,7 +11,7 @@ export default function OgImage() {
     (
       <div
         style={{
-          background: "#111111",
+          background: "#0b0d0d",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -23,7 +23,7 @@ export default function OgImage() {
           style={{
             fontSize: 96,
             fontWeight: 700,
-            color: "white",
+            color: "#c9dad6",
             letterSpacing: "-2px",
           }}>
           {SITE_NAME}
@@ -33,7 +33,7 @@ export default function OgImage() {
             marginTop: 24,
             fontSize: 32,
             fontWeight: 500,
-            color: "#3b82f6",
+            color: "#b5854f",
           }}>
           Your guide to the Land of Fire and Ice.
         </div>

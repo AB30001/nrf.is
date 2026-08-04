@@ -1,16 +1,19 @@
 import "@/styles/tailwind.css";
 import { Providers } from "./providers";
 import { cx } from "@/utils/all";
-import { Inter, Lora } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter"
+  variable: "--font-inter",
+  display: "swap"
 });
 
-const lora = Lora({
+// High-contrast display serif — carries the headings across the whole site.
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-lora"
+  variable: "--font-playfair",
+  display: "swap"
 });
 
 export default function RootLayout({
@@ -22,8 +25,8 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cx(inter.variable, lora.variable)}>
-      <body className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
+      className={cx(inter.variable, playfair.variable)}>
+      <body className="bg-night font-sans text-mist antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

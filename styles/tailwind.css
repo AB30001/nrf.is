@@ -7,3 +7,169 @@
 /*! purgecss end ignore */
 
 /*Custom Styles Here*/
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps the dark page from flashing white behind overscroll / rubber-band. */
+    background-color: theme("colors.night.DEFAULT");
+  }
+
+  ::selection {
+    background-color: theme("colors.bronze.DEFAULT");
+    color: theme("colors.night.DEFAULT");
+  }
+
+  /* Dark scrollbar so the chrome matches the page. */
+  * {
+    scrollbar-color: theme("colors.basalt.lighter") transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.night.900");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.basalt.lighter");
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.bronze.dark");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.bronze.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Small uppercase letterspaced label used above headings site-wide. */
+  .kicker {
+    @apply text-[0.7rem] font-medium uppercase tracking-kicker text-bronze;
+  }
+
+  /* Primary call to action. */
+  .btn-bronze {
+    @apply inline-flex items-center justify-center gap-2 bg-bronze px-7 py-3.5
+      text-xs font-semibold uppercase tracking-[0.16em] text-night
+      transition-colors duration-300 hover:bg-bronze-light
+      disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  /* Secondary / quieter call to action. */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-basalt-lighter
+      bg-transparent px-7 py-3.5 text-xs font-semibold uppercase
+      tracking-[0.16em] text-mist transition-colors duration-300
+      hover:border-bronze hover:text-bronze
+      disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  /* Thin double-rule frame from the reference design (reviews / text panels). */
+  .ornament-frame {
+    @apply relative border border-basalt-lighter;
+  }
+  .ornament-frame::after {
+    content: "";
+    @apply pointer-events-none absolute inset-[10px] border border-basalt-lighter/60;
+  }
+
+  /* Form fields. */
+  .field {
+    @apply w-full border border-basalt-lighter bg-basalt px-4 py-3.5 text-mist
+      outline-none transition-colors duration-200
+      placeholder:text-mist-dim/60 focus:border-bronze;
+  }
+  .field-error {
+    @apply border-red-500/70 focus:border-red-500;
+  }
+}
+
+@layer utilities {
+  /* Fades a full-bleed photo down into the page background. */
+  .scrim-bottom {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(11, 13, 13, 0) 0%,
+      rgba(11, 13, 13, 0.35) 45%,
+      rgba(11, 13, 13, 0.85) 78%,
+      theme("colors.night.DEFAULT") 100%
+    );
+  }
+  .scrim-full {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(11, 13, 13, 0.75) 0%,
+      rgba(11, 13, 13, 0.5) 40%,
+      rgba(11, 13, 13, 0.9) 100%
+    );
+  }
+
+  /* Horizontal scrollers keep the drag behaviour but hide the bar. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --- Editorial prose -------------------------------------------------------
+   PortableText output on post / about / privacy pages. Tuned on top of
+   @tailwindcss/typography's `prose-invert`.                                  */
+.prose-nrf {
+  --tw-prose-body: theme("colors.mist.DEFAULT");
+  --tw-prose-headings: theme("colors.frost.light");
+  --tw-prose-lead: theme("colors.mist.dim");
+  --tw-prose-links: theme("colors.bronze.light");
+  --tw-prose-bold: #ffffff;
+  --tw-prose-counters: theme("colors.bronze.DEFAULT");
+  --tw-prose-bullets: theme("colors.bronze.dark");
+  --tw-prose-hr: theme("colors.basalt.lighter");
+  --tw-prose-quotes: theme("colors.frost.DEFAULT");
+  --tw-prose-quote-borders: theme("colors.bronze.DEFAULT");
+  --tw-prose-captions: theme("colors.mist.dim");
+  --tw-prose-code: theme("colors.frost.light");
+  --tw-prose-pre-code: theme("colors.mist.DEFAULT");
+  --tw-prose-pre-bg: theme("colors.night.900");
+  --tw-prose-th-borders: theme("colors.basalt.lighter");
+  --tw-prose-td-borders: theme("colors.basalt.light");
+}
+
+.prose-nrf :is(h2, h3, h4) {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.prose-nrf blockquote {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-style: normal;
+  font-size: 1.25em;
+  line-height: 1.6;
+}
+
+.prose-nrf a {
+  text-decoration-color: theme("colors.bronze.dark");
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.prose-nrf a:hover {
+  color: theme("colors.bronze.DEFAULT");
+}
+
+.prose-nrf img {
+  border-radius: 0;
+}
+
+.prose-nrf table {
+  font-size: 0.925em;
+}
+.prose-nrf thead th {
+  color: theme("colors.frost.DEFAULT");
+  font-weight: 600;
+}
