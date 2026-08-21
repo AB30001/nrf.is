@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         <h1 className="font-serif font-normal text-frost-light">
           Privacy Policy
         </h1>
-        <p>Last updated: June 2026</p>
+        <p>Last updated: August 2026</p>
 
         <h2>Who we are</h2>
         <p>
@@ -36,8 +36,24 @@ export default function PrivacyPage() {
 
         <h2>Cookies</h2>
         <p>
-          This site does not use tracking cookies or analytics. No personal
-          data is collected through cookies.
+          We use a cookie preference banner so you can accept or decline
+          optional cookies. Your choice is stored locally in your browser
+          (localStorage) so we can remember it on later visits.
+        </p>
+        <ul>
+          <li>
+            <strong>Essential</strong> — needed for the site to function
+            (including remembering your cookie choice). These are always on.
+          </li>
+          <li>
+            <strong>Optional</strong> — may be used for analytics or similar
+            improvements. These are only set if you choose{" "}
+            <em>Accept all</em>.
+          </li>
+        </ul>
+        <p>
+          You can clear site data in your browser at any time to reset your
+          choice and see the banner again.
         </p>
 
         <h2>Your rights (GDPR)</h2>
