@@ -257,9 +257,14 @@ function MidnightBand() {
             title="Under the Midnight Sun"
             subtitle="From May to August the sun barely sets. Plan the long days — fjord villages, highland roads and puffin cliffs — with our seasonal guides."
           />
-          <Link href="/archive" className="btn-outline mt-9">
-            Plan your trip
-          </Link>
+          <a
+            href="https://nordexplore.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline mt-9"
+          >
+            Explore Iceland
+          </a>
         </div>
       </div>
     </section>
