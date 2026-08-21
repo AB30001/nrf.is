@@ -89,11 +89,23 @@ export default function Footer(props) {
             Copyright © {new Date().getFullYear()}{" "}
             {props?.copyright || SITE_NAME}. All rights reserved.
           </p>
-          <Link
-            href="/privacy"
-            className="text-xs text-mist-dim/70 transition-colors hover:text-bronze">
-            Privacy Policy
-          </Link>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+            <p className="text-xs text-mist-dim/70">
+              Built by{" "}
+              <a
+                href="https://devhuset.no"
+                target="_blank"
+                rel="noopener"
+                className="transition-colors hover:text-bronze">
+                Devhuset
+              </a>
+            </p>
+            <Link
+              href="/privacy"
+              className="text-xs text-mist-dim/70 transition-colors hover:text-bronze">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
