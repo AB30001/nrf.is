@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         <h1 className="font-serif font-normal text-frost-light">
           Privacy Policy
         </h1>
-        <p>Last updated: August 2026</p>
+        <p>Last updated: September 2026</p>
 
         <h2>Who we are</h2>
         <p>
@@ -34,26 +34,40 @@ export default function PrivacyPage() {
           marketing purposes.
         </p>
 
-        <h2>Cookies</h2>
+        <h2>Analytics</h2>
         <p>
-          We use a cookie preference banner so you can accept or decline
-          optional cookies. Your choice is stored locally in your browser
-          (localStorage) so we can remember it on later visits.
+          We use{" "}
+          <a href="https://www.goatcounter.com" target="_blank" rel="noopener noreferrer">
+            GoatCounter
+          </a>
+          , a privacy-friendly analytics service, to see how many people visit
+          the site and which pages they read. It does not use cookies, does not
+          store anything in your browser, and does not track you across
+          websites or build a profile of you. Because of that, we do not show a
+          cookie banner.
         </p>
+        <p>GoatCounter only stores anonymous, aggregated counts, such as:</p>
         <ul>
-          <li>
-            <strong>Essential</strong> — needed for the site to function
-            (including remembering your cookie choice). These are always on.
-          </li>
-          <li>
-            <strong>Optional</strong> — may be used for analytics or similar
-            improvements. These are only set if you choose{" "}
-            <em>Accept all</em>.
-          </li>
+          <li>which pages were viewed, and which website referred the visitor</li>
+          <li>browser and operating system (for example, Firefox on Windows)</li>
+          <li>country, worked out from the IP address</li>
+          <li>language and screen width</li>
         </ul>
         <p>
-          You can clear site data in your browser at any time to reset your
-          choice and see the banner again.
+          Your IP address and full browser User-Agent are only used to work out
+          these figures and are not stored. To avoid counting the same visitor
+          repeatedly, GoatCounter keeps a randomly generated ID in server
+          memory for up to 8 hours; it is never written to a database. This
+          data is anonymous and cannot be linked back to you. It is not shared
+          with third parties and is stored on servers in Finland and Germany.
+          See{" "}
+          <a
+            href="https://www.goatcounter.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer">
+            GoatCounter&apos;s privacy policy
+          </a>{" "}
+          for details.
         </p>
 
         <h2>Your rights (GDPR)</h2>

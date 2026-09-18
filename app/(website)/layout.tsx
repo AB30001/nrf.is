@@ -1,6 +1,6 @@
 import { getSettings, getTopCategories } from "@/lib/sanity/client";
 import Footer from "@/components/footer";
-import CookieConsent from "@/components/cookie-consent";
+import GoatCounter from "@/components/goatcounter";
 import { urlForImage } from "@/lib/sanity/image";
 import Navbar from "@/components/navbar";
 import JsonLd from "@/components/json-ld";
@@ -71,7 +71,7 @@ export default async function Layout({ children, params }) {
       <main className="pt-20">{children}</main>
 
       <Footer {...settings} categories={categories} />
-      <CookieConsent />
+      <GoatCounter />
     </>
   );
 }
