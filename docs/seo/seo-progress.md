@@ -99,16 +99,16 @@ _Last updated: 2026-10-09_
 ## Changes shipped
 | Date | Change | Page types | Expected metric | Verified | Outcome |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-09 (local, not deployed) | `pageMetadata()` helper: canonical, titles, descriptions, OG/Twitter per page | all | Correct canonicalization; better titles/CTR on home, categories, archive | localhost HTML | |
-| 2026-10-09 (local) | Category titles/descriptions from Sanity + breadcrumbs | category | Category pages indexable with descriptive titles | localhost | |
-| 2026-10-09 (local) | Sitemap 40 → 48 URLs, `_updatedAt` lastmod | sitemap | Categories discovered/crawled | localhost | |
-| 2026-10-09 (local) | Meta/JSON-LD description fallback for posts without excerpt | post | No empty descriptions | localhost | |
-| 2026-10-09 (local) | robots `Disallow: /studio` | robots | — | localhost | |
+| 2026-10-09 (deployed 1d0a619) | `pageMetadata()` helper: canonical, titles, descriptions, OG/Twitter per page | all | Correct canonicalization; better titles/CTR on home, categories, archive | localhost + live HTML | |
+| 2026-10-09 (deployed 1d0a619) | Category titles/descriptions from Sanity + breadcrumbs | category | Category pages indexable with descriptive titles | localhost | |
+| 2026-10-09 (deployed 1d0a619) | Sitemap 40 → 48 URLs, `_updatedAt` lastmod | sitemap | Categories discovered/crawled | localhost | |
+| 2026-10-09 (deployed 1d0a619) | Meta/JSON-LD description fallback for posts without excerpt | post | No empty descriptions | localhost | |
+| 2026-10-09 (deployed 1d0a619) | robots `Disallow: /studio` | robots | — | localhost | |
 
 ## Open work
 | Item | Priority | Owner | Blocked by |
 | --- | --- | --- | --- |
-| Deploy template fixes (with monetization work) | high | user approval | — |
+| ~~Deploy template fixes~~ done 2026-10-09 (Netlify, commit 1d0a619) | — | — | — |
 | Refresh P1 posts as Sanity drafts (best time, waterfalls, 7-day itinerary, Reykjavík) | high | agent | go-ahead |
 | Merge the two Silfra posts + 301 | medium | agent | approval (URL change) |
 | Internal linking pass (Phase 4) | medium | agent | — |

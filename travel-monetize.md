@@ -74,7 +74,7 @@ VIATOR_API_KEY=<copy from NRF.is>
 TIQETS_API_TOKEN=<copy from NRF.is>
 NEXT_PUBLIC_TIQETS_PARTNER=
 ```
-Add the same variables to the Vercel project (Production + Preview), or the live site will only show fallback links.
+Add the same variables to the **hosting** project, or the live site only shows fallback links. Check the host first: `curl -sI https://<site>/ | grep -i server` (`Netlify` or Vercel). NRF.is is on **Netlify** (site `nrff-is`, builds from GitHub `main`): `netlify link --id <site id>`, then `netlify env:set NAME value` per variable (never echo the values). Public IDs (`aid`, `marker`, `trs`) also have defaults in `config.ts`, so links stay tracked if a variable is missing; API keys have no defaults.
 
 ### Travelpayouts brands
 
@@ -197,7 +197,7 @@ scripts/monetize-links.mjs
 6. **Integrate**: apply the patches by hand to the target's post template, link renderer, schema, analytics, footer, homepage, privacy page.
 7. **Restyle** the components to the target design.
 8. **Verify** (§9) and show the user on localhost: a post of each type, plus the homepage.
-9. **Ship only with approval**: commit, push, Vercel env vars, `sanity deploy`.
+9. **Ship only with approval**: env vars on the host, commit, push (the host builds from GitHub), `sanity deploy`. If the GitHub repo is public, keep private exports (Search Console CSVs etc.) out of the commit.
 10. Write down what was done and what's open in that repo's copy of this file (or a short `MONETIZATION.md`).
 
 ---
@@ -264,14 +264,14 @@ NRF.is values: Viator Iceland 55 / Reykjavík 905 · Tiqets Iceland 50108 / Reyk
 
 ## 11. NRF.is status (2026-10-09)
 
-Built and verified locally. **Not committed or deployed.**
+Deployed 2026-10-09 (commit 1d0a619 to GitHub main → Netlify).
 
 **Done:**
 - All components in §4, the 7 Studio blocks and the homepage section.
 - Disclosure page, privacy text and click tracking.
 
 **Open:**
-- Commit, push and Vercel env vars (needs the user's OK).
+- ~~Commit, push, env vars~~: done 2026-10-09 (commit 1d0a619, Netlify env vars set). The standalone Studio was deployed with `sanity deploy`.
 - `sanity deploy` for the standalone Studio (needs the user's OK).
 - Hub pages `/tours`, `/where-to-stay`, `/iceland-car-rental`.
 - A post-level "no offers" switch.

@@ -4,7 +4,7 @@ _Audited: 2026-10-09 (live site https://nrf.is, then fixes verified on localhost
 
 ## Summary
 - Findings: 0 critical, 3 high, 5 medium, 2 low
-- Fixed in code (not yet deployed): 8
+- Fixed and deployed 2026-10-09 (commit 1d0a619): 8
 - Blockers needing user decision: 1 (deploy)
 
 ## Verified healthy (live, 2026-10-09)
@@ -85,4 +85,4 @@ _Audited: 2026-10-09 (live site https://nrf.is, then fixes verified on localhost
 ## Blocked items
 | ID | Blocker | Needs | Owner |
 | --- | --- | --- | --- |
-| A1–A8 | Fixes are local only | Commit + push / Vercel deploy approval | user |
+| — | none | — | — |
