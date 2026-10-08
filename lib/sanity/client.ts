@@ -12,6 +12,8 @@ import {
   postsbycatquery,
   catpathquery,
   catquery,
+  categoryquery,
+  categorysitemapquery,
   getAll,
   searchquery,
   aboutquery
@@ -112,6 +114,20 @@ export async function getPostsByCategory(slug) {
     return (await client.fetch(postsbycatquery, { slug })) || {};
   }
   return {};
+}
+
+export async function getCategoryBySlug(slug) {
+  if (client) {
+    return (await client.fetch(categoryquery, { slug })) || null;
+  }
+  return null;
+}
+
+export async function getCategoriesForSitemap() {
+  if (client) {
+    return (await client.fetch(categorysitemapquery)) || [];
+  }
+  return [];
 }
 
 export async function getTopCategories() {

@@ -105,6 +105,11 @@ export default function Footer(props) {
               className="text-xs text-mist-dim/70 transition-colors hover:text-bronze">
               Privacy Policy
             </Link>
+            <Link
+              href="/affiliate-disclosure"
+              className="text-xs text-mist-dim/70 transition-colors hover:text-bronze">
+              Affiliate Disclosure
+            </Link>
           </div>
         </div>
       </div>

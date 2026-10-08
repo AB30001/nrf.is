@@ -2,7 +2,13 @@ import PostPage from "./default";
 import { getAllPostsSlugs, getPostBySlug } from "@/lib/sanity/client";
 import { urlForImage } from "@/lib/sanity/image";
 import JsonLd from "@/components/json-ld";
-import { absoluteUrl, buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo";
+import {
+  absoluteUrl,
+  buildArticleJsonLd,
+  buildBreadcrumbJsonLd,
+  pageMetadata,
+  summarize
+} from "@/lib/seo";
 
 export async function generateStaticParams() {
   return await getAllPostsSlugs();
@@ -14,18 +20,20 @@ export async function generateMetadata({ params }) {
     ? urlForImage(post.mainImage)?.src
     : absoluteUrl("/opengraph-image");
 
-  return {
+  return pageMetadata({
     title: post.title,
-    description: post.excerpt,
-    alternates: {
-      canonical: absoluteUrl(`/post/${post.slug?.current}`)
-    },
+    // A few agent-published posts have no excerpt; fall back to the opening text.
+    description: post.excerpt || summarize(post.body),
+    path: `/post/${post.slug?.current}`,
+    image: imageUrl,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: imageUrl, width: 1200, height: 630 }]
+      type: "article",
+      publishedTime: post.publishedAt || post._createdAt,
+      modifiedTime: post._updatedAt,
+      authors: post.author?.name ? [post.author.name] : undefined,
+      section: post.categories?.[0]?.title
     }
-  };
+  });
 }
 
 export default async function PostDefault({ params }) {

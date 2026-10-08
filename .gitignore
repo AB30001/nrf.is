@@ -46,3 +46,5 @@ next-env.d.ts
 # Sanity CMS
 /.sanity
 /dist
+# Search Console exports (private data; repo is public)
+docs/seo/gsc-*/

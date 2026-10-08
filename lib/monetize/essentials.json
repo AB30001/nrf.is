@@ -1,0 +1,31 @@
+{
+  "_comment": "Travelpayouts brand boxes. `brand` must be a key of TP_BRANDS in links.ts and a program this site's project is subscribed to (check with `node scripts/monetize-links.mjs`).",
+  "car": {
+    "title": "Rent a car",
+    "text": "Compare cars from local Icelandic rental companies, including 4x4s for the highlands and winter roads.",
+    "cta": "Compare cars",
+    "brand": "localrent",
+    "url": "https://www.localrent.com/en/iceland/"
+  },
+  "esim": {
+    "title": "Stay online",
+    "text": "Get a Saily eSIM before you fly: mobile data from the moment you land, no SIM swap or roaming bill.",
+    "cta": "Get an eSIM",
+    "brand": "saily",
+    "url": "https://saily.com/esim-iceland/"
+  },
+  "insurance": {
+    "title": "Travel insurance",
+    "text": "Cover for cancellations, medical costs and gear, for trips with glaciers, volcanoes and winter roads.",
+    "cta": "Get a quote",
+    "brand": "ekta",
+    "url": "https://ektatraveling.com/"
+  },
+  "transfer": {
+    "title": "Airport transfer",
+    "text": "A driver waiting at Keflavík arrivals, at a fixed price, to take you straight to your hotel.",
+    "cta": "Book a transfer",
+    "brand": "welcomepickups",
+    "url": "https://www.welcomepickups.com/reykjavik/"
+  }
+}

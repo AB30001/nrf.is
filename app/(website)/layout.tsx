@@ -26,7 +26,8 @@ async function sharedMetaData(params) {
     description: settings?.description || SITE_DESCRIPTION,
     keywords: SITE_KEYWORDS,
     authors: [{ name: SITE_NAME }],
-    canonical: settings?.url,
+    // No canonical or og:url here: they would be inherited by every page.
+    // Each page sets its own through pageMetadata() in lib/seo.js.
     openGraph: baseOpenGraph({
       images: [
         {
@@ -37,7 +38,6 @@ async function sharedMetaData(params) {
       ]
     }),
     twitter: {
-      title: settings?.title || SITE_NAME,
       card: "summary_large_image"
     },
     robots: {

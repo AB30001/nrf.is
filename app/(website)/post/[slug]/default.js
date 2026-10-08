@@ -10,6 +10,14 @@ import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 import CategoryLabel from "@/components/blog/category";
 import AuthorCard from "@/components/blog/authorCard";
 import { RuneFlourish } from "@/components/ui/runes";
+import AffiliateDisclosure from "@/components/monetize/AffiliateDisclosure";
+import { AFFILIATE_BLOCK_TYPES, hasAffiliateLinks } from "@/lib/monetize/content";
+import { planFor } from "@/lib/monetize/topics";
+import TourWidget from "@/components/monetize/TourWidget";
+import TicketList from "@/components/monetize/TicketList";
+import StayCta from "@/components/monetize/StayCta";
+import TravelEssentials from "@/components/monetize/TravelEssentials";
+import FlightPrices from "@/components/monetize/FlightPrices";
 
 export default function Post(props) {
   const { loading, post } = props;
@@ -21,6 +29,12 @@ export default function Post(props) {
   }
 
   const imageProps = post?.mainImage ? urlForImage(post?.mainImage) : null;
+
+  // Posts without hand-placed partner blocks get a set picked from their topic.
+  const hasManualWidget = post?.body?.some(block =>
+    AFFILIATE_BLOCK_TYPES.includes(block._type)
+  );
+  const plan = post && !hasManualWidget ? planFor(post) : null;
 
   const AuthorimageProps = post?.author?.image
     ? urlForImage(post.author.image)
@@ -100,9 +114,47 @@ export default function Post(props) {
 
       <Container>
         <article className="mx-auto max-w-screen-md">
+          {hasAffiliateLinks(post.body) && <AffiliateDisclosure />}
           <div className="prose prose-invert prose-nrf mx-auto my-3">
-            {post.body && <PortableText value={post.body} />}
+            {post.body && <PortableText value={post.body} slug={post.slug?.current} />}
           </div>
+
+          {plan && (
+            <>
+              {plan.tiqets ? (
+                <TicketList
+                  heading={plan.heading}
+                  query={plan.tiqets}
+                  slug={post.slug?.current}
+                  placement="auto"
+                />
+              ) : (
+                <TourWidget
+                  heading={plan.heading}
+                  viator={plan.viator}
+                  slug={post.slug?.current}
+                  placement="auto"
+                />
+              )}
+              {plan.stay && (
+                <StayCta
+                  placeName={plan.stay.name}
+                  lat={plan.stay.lat}
+                  lng={plan.stay.lng}
+                  slug={post.slug?.current}
+                  placement="auto_stay"
+                />
+              )}
+              {plan.flights && (
+                <FlightPrices slug={post.slug?.current} placement="auto_flights" />
+              )}
+              <TravelEssentials
+                items={plan.essentials}
+                slug={post.slug?.current}
+                placement="auto_essentials"
+              />
+            </>
+          )}
 
           <div className="mb-12 mt-14 flex justify-center">
             <Link href="/" className="btn-outline group">

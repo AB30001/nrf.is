@@ -1,10 +1,11 @@
 import Container from "@/components/container";
-import { SITE_NAME } from "@/lib/seo";
+import { SITE_NAME, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy",
-  description: `Privacy policy for ${SITE_NAME}`
-};
+  description: `How ${SITE_NAME} handles your data: cookie-free analytics, the contact form and affiliate links.`,
+  path: "/privacy"
+});
 
 export default function PrivacyPage() {
   return (
@@ -13,7 +14,7 @@ export default function PrivacyPage() {
         <h1 className="font-serif font-normal text-frost-light">
           Privacy Policy
         </h1>
-        <p>Last updated: September 2026</p>
+        <p>Last updated: October 2026</p>
 
         <h2>Who we are</h2>
         <p>
@@ -68,6 +69,30 @@ export default function PrivacyPage() {
             GoatCounter&apos;s privacy policy
           </a>{" "}
           for details.
+        </p>
+
+        <h2>Affiliate links</h2>
+        <p>
+          Some links on this site are affiliate links to travel partners
+          (Stay22, Travelpayouts, Viator and Tiqets), which pay us a small
+          commission if you book through them. Partner offers are shown as
+          plain links, no partner cookies are set unless you open one of the
+          tools described below, and we do not share any personal data with
+          partners. When you click a
+          partner link, the partner&apos;s website may set its own cookies to
+          credit the booking to us. That is covered by the partner&apos;s
+          privacy policy. See our{" "}
+          <a href="/affiliate-disclosure">Affiliate Disclosure</a> for
+          details. We count clicks on partner links in GoatCounter, the same
+          anonymous way as page views.
+        </p>
+        <p>
+          Two partner tools load content from our partners&apos; servers. The
+          car rental search box (Localrent, via Travelpayouts) loads when you
+          scroll to it; it sets no cookies, but like any web request it shares
+          your IP address and the page address with them. The full car
+          catalogue and the hotel map load only when you press their buttons,
+          and may set cookies on your device once you do.
         </p>
 
         <h2>Your rights (GDPR)</h2>

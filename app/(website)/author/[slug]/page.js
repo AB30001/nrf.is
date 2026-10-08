@@ -8,6 +8,7 @@ import {
   getAuthorPostsBySlug
 } from "@/lib/sanity/client";
 import { urlForImage } from "@/lib/sanity/image";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return await getAllAuthorsSlugs();
@@ -17,7 +18,11 @@ export async function generateMetadata({ params }) {
   const data = await getAuthorPostsBySlug(params.slug);
   const author = data?.[0]?.author;
   if (!author) return {};
-  return { title: `Posts by ${author.name}` };
+  return pageMetadata({
+    title: `${author.name}: Iceland Travel Writer`,
+    description: `Iceland itineraries, guides and trip reports by ${author.name}, ${data.length} articles on NRF.is.`,
+    path: `/author/${params.slug}`
+  });
 }
 
 export default async function AuthorPage({ params }) {

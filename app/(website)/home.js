@@ -5,6 +5,7 @@ import PostList from "@/components/postlist";
 import PostCarousel from "@/components/postCarousel";
 import SectionHeading from "@/components/ui/sectionHeading";
 import { RuneFlourish } from "@/components/ui/runes";
+import PlanYourTrip from "@/components/monetize/PlanYourTrip";
 import { urlForImage } from "@/lib/sanity/image";
 import { SITE_DESCRIPTION } from "@/lib/seo";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
@@ -26,6 +27,7 @@ export default function Home({ posts = [], categories = [] }) {
       <Hero categories={categories} />
       <FeaturedRail posts={featured} />
       <Mosaic posts={mosaic} />
+      <PlanYourTrip />
       <MidnightBand />
       <Latest posts={latest} />
     </>

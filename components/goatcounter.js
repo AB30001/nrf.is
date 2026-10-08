@@ -21,6 +21,35 @@ function countPageview() {
   window.goatcounter.count({ path });
 }
 
+// Affiliate clicks are counted as GoatCounter events: aff/{provider}/{label}.
+// One delegated listener covers links rendered anywhere, now or later.
+// auxclick catches middle-click "open in new tab".
+function countAffiliateClick(event) {
+  const link = event.target.closest?.("a[data-aff]");
+  if (!link || !window.goatcounter?.count) return;
+  const { aff, affLabel } = link.dataset;
+  window.goatcounter.count({
+    path: ["aff", aff, affLabel || window.location.pathname.replace(/^\//, "")]
+      .filter(Boolean)
+      .join("/"),
+    title: link.hostname,
+    event: true
+  });
+}
+
+function AffiliateClickTracker() {
+  useEffect(() => {
+    document.addEventListener("click", countAffiliateClick);
+    document.addEventListener("auxclick", countAffiliateClick);
+    return () => {
+      document.removeEventListener("click", countAffiliateClick);
+      document.removeEventListener("auxclick", countAffiliateClick);
+    };
+  }, []);
+
+  return null;
+}
+
 function RouteTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -45,6 +74,7 @@ export default function GoatCounter() {
       <Suspense fallback={null}>
         <RouteTracker />
       </Suspense>
+      <AffiliateClickTracker />
       <Script
         src={GOATCOUNTER_SCRIPT}
         data-goatcounter={GOATCOUNTER_ENDPOINT}
